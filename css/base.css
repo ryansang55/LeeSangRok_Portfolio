@@ -393,17 +393,17 @@ a:focus {
 
 .content--alternate  .content__item:nth-child(even) .content__item-title,
 .content__item--wide .content__item-description {
-	grid-area: 3 / 2 / 4 / 3;
+	/*grid-area: 3 / 2 / 4 / 3;*/
 	justify-self: end;
 	width: auto;
 }
-
+.content--alternate  .content__item .content__item-title{font-size: 200px !important;}
 .content__item--expand .content__item-description {
 	grid-area: 1 / 2 / 3 / 3;
     justify-self: start;
     align-self: start;
     padding: 0 2rem;
-    width: 250px;
+   /* width: 250px;*/
     font-size: 0.9rem;
 }
 
