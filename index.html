@@ -10,9 +10,79 @@
 		<link rel="shortcut icon" href="favicon.ico">
 		<link rel="stylesheet" href="https://use.typekit.net/dec4mzz.css">
 		<link rel="stylesheet" type="text/css" href="css/base.css" />
+		<style>
+			#modal {
+				width: 100%;
+				height: 100%;
+				overflow: auto;
+				position: fixed;
+				left:0;
+				top: 0;
+				z-index: 9999;
+				display: none;  
+			}
+			#modal .body {
+				text-align: center;
+				padding: 20px;
+				margin:auto;
+				/*opacity: 0;*/
+				/*transform: translate(-50%, -50%);*/
+				background: rgba(255,255,255,0.8)
+			}
+			#modal .body img {
+				
+				margin-bottom: 20px;
+			}
+			#modal .body .button {
+				margin-top: 200px;
+				text-align: center;
+			}
+			#modal .body .button button {
+				padding: 6px 12px;
+				border: none;
+				border-radius: 6px;
+				background: #009688;
+				color: white;
+				position: absolute;
+				right:50px;
+				top:50px;
+			}
+		</style>
+		<script src="js/jquery-3.1.1.min.js" type="text/javascript"></script>
 		<script>document.documentElement.className="js";var supportsCssVars=function(){var e,t=document.createElement("style");return t.innerHTML="root: { --tmp-var: bold; }",document.head.appendChild(t),e=!!(window.CSS&&window.CSS.supports&&window.CSS.supports("font-weight","var(--tmp-var)")),t.parentNode.removeChild(t),e};supportsCssVars()||alert("Please view this demo in a modern browser that supports CSS Variables.");</script>
+		<script>
+			$(function(){
+				$('.content__item-img').click(function(){
+				  var img = $(this)    // .partner_info img  각 img를 img로 기억시킴
+				  var img_src = img.attr('big-img');  // .partner_info img src=""     속성값을 img_src로 기억시킴 
+				  var img_title = img.attr('title');
+				  var img_content = img.attr('content');
+	
+				  $('#modal').fadeIn();   
+				  $('#modal img').attr('src', img_src); // 속성 넣을 값을 ,콤마  다음에 넣음. 그것이 각 img_src 
+				  $('#modal .txt').text(img_content);
+				  $('#modal .title').text(img_title);
+			   })
+	
+				$('#modal #btn-close').click(function(){
+				   $('#modal').fadeOut();
+			   })
+			   
+			}) //jquery end
+		</script>
+		
 	</head>
 	<body class="demo-1 loading">
+		<div id="modal">
+			<div class="body">
+				<div class="img">
+					<img src="test.jpg">
+					<p class="txt"></p>
+					<p class="title"></p>
+				</div>
+				<div class="button"><button type="button" id="btn-close">닫기</button></div>
+			</div>
+		</div>
 		<main>
 			<div data-scroll class="page page--layout-2">
 				<h1 class="page__title">Smooth Scrolling Image Effects</h1>
@@ -34,7 +104,7 @@
 				<div class="content content--full content--alternate">
 					<div class="content__item content__item--wide">
 						<span class="content__item-number">01</span>
-						<div class="content__item-imgwrap"><div class="content__item-img" style="background-image: url(img/스타피부과-큰슬라이더-배너.jpg);"></div></div>
+						<div class="content__item-imgwrap"><div class="content__item-img" style="background-image: url(img/스타피부과-큰슬라이더-배너.jpg);" big-img="img/프로젝트2-큰슬라이더3.jpg" title="스타피부" content="스타피부는 어쩌구저쩌구 설명"></div></div>
 						<div class="content__item-deco"></div>
 						<h2 class="content__item-title">Oh</h2>
 						<p class="content__item-description">Little trees and bushes grow however makes them happy.</p>
