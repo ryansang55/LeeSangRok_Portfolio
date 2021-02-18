@@ -158,9 +158,11 @@ a:focus {
 	font-weight: 400;
 }
 
-.page .inner{max-width: 1280px;}
+.page .inner{min-width: 1280px;}
 
 .page .Intro_left{float: left;}
+
+.page .Intro_right{float: right;}
 
 .credits {
 	text-align: center;
